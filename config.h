@@ -69,11 +69,11 @@ static char *volmute[] = { "pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle",
 static char *micup[] = { "pactl", "set-source-volume", "@DEFAULT_SOURCE@", "+5%", NULL };
 static char *micdown[] = { "pactl", "set-source-volume", "@DEFAULT_SOURCE@", "-5%", NULL };
 static char *micmute[] = { "pactl", "set-source-mute", "@DEFAULT_SOURCE@", "toggle", NULL };
-static char *archwiki[] = { "arch-wiki-dmenu" };
-static char *shutdown[] = { "systemctl", "poweroff" };
-static char *suspend[] = { "systemctl", "suspend" };
-static char *lock[] = { "loginctl", "lock-session"};
-static char *reboot[] = { "systemctl", "reboot" };
+static char *archwiki[] = { "arch-wiki-dmenu", NULL };
+static char *shutdown[] = { "systemctl", "poweroff", NULL };
+static char *suspend[] = { "systemctl", "suspend", NULL };
+static char *lock[] = { "loginctl", "lock-session", NULL};
+static char *reboot[] = { "systemctl", "reboot", NULL };
 
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
@@ -98,8 +98,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_Down,   focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_Up,     focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_p,      incnmaster,     {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_period, incnmaster,     {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_comma,  incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_comma,  setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_period, setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
