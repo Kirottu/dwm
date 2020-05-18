@@ -9,7 +9,7 @@ static const int systraypinningfailfirst = 2;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=9", "Noto Sans Symbols2:size=9" };
+static const char *fonts[]          = { "monospace:size=9", "Symbola:size=9" };
 static const char dmenufont[]       = "monospace:size=9";
 static const char col_gray1[]       = "#2e3440";
 static const char col_gray2[]       = "#20242c";
@@ -34,13 +34,13 @@ static const Rule rules[] = {
 	{ "Chromium", "discord.com__app", NULL, 1 << 3,     0,           1 },
 	{ "Lutris",   NULL,	  NULL,	      1 << 1,	    0, 		 0 },
 	{ "Steam",    NULL,	  NULL,	      1 << 2,       0,           0 },
-	{ "Alarm-clock-applet", NULL, NULL,   1 << 5,       0,           1 },
+	{ "corectrl", NULL, 	  NULL,	      1 << 5,       0,           1 },
 };
 
 /* layout(s) */
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
+static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 #include "layouts.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -67,12 +67,12 @@ static char *volup[] = { "amixer", "set", "Master", "3+", NULL};
 static char *voldown[] = { "amixer", "set", "Master", "3-", NULL};
 static char *volmute[] = { "amixer", "set", "Master", "toggle", NULL};
 static char *lock[] = { "loginctl", "lock-session", NULL};
-static char *alsamixer[] = { "alacritty", "-e", "alsamixer", NULL };
+static char *alsamixer[] = { "st", "-e", "alsamixer", NULL };
 
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-i", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 
-static const char *termcmd[]  = { "alacritty", NULL };
+static const char *termcmd[]  = { "st", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
