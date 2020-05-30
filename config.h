@@ -63,11 +63,11 @@ static const Layout layouts[] = {
 
 /* commands */
 
-static char *volup[] = { "amixer", "set", "Master", "3+", NULL};
-static char *voldown[] = { "amixer", "set", "Master", "3-", NULL};
-static char *volmute[] = { "amixer", "set", "Master", "toggle", NULL};
+static char *volup[] = { "/home/kirottu/.config/scripts/volume.sh", "up", NULL };
+static char *voldown[] = { "/home/kirottu/.config/scripts/volume.sh", "down", NULL };
+static char *volmute[] = { "/home/kirottu/.config/scripts/volume.sh", "toggle", NULL };
 static char *lock[] = { "loginctl", "lock-session", NULL};
-static char *alsamixer[] = { "st", "-e", "alsamixer", NULL };
+static char *alsamixer[] = { "pavucontrol", NULL };
 
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-i", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
