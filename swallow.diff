@@ -1,0 +1,11 @@
+--2020-06-11 13:14:59--  https://dwm.suckless.org/patches/swallow/dwm-swallow-20200522-7accbcf.diff
+Resolving dwm.suckless.org... 195.201.112.86, 2a01:4f8:1c0c:706c::1
+Connecting to dwm.suckless.org|195.201.112.86|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 10221 (10.0K) [text/plain]
+Saving to: ‘dwm-swallow-20200522-7accbcf.diff’
+
+     0K .........                                             100%  254M=0s
+
+2020-06-11 13:15:00 (254 MB/s) - ‘dwm-swallow-20200522-7accbcf.diff’ saved [10221/10221]
+

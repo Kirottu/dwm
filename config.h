@@ -3,6 +3,7 @@
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
+static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const unsigned int systraypinning = 2;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int systraypinningfailfirst = 2;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
@@ -30,11 +31,14 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Chromium", "discord.com__app", NULL, 1 << 3,     0,           1 },
-	{ "Lutris",   NULL,	  NULL,	      1 << 1,	    0, 		 0 },
-	{ "Steam",    NULL,	  NULL,	      1 << 2,       0,           0 },
-	{ "corectrl", NULL, 	  NULL,	      1 << 5,       0,           1 },
+	/* class      instance    title       tags mask     isfloating  isterminal  noswallow  monitor */
+	{ "Chromium", "discord.com__app", NULL, 1 << 3,     0,          0,	    0,		1 },
+	{ "Lutris",   NULL,	  NULL,	      1 << 1,	    0, 		0,	    0,		0 },
+	{ "Steam",    NULL,	  NULL,	      1 << 2,       0,          0,	    0,          0 },
+	{ "corectrl", NULL, 	  NULL,	      1 << 5,       0,          0,	    0, 		1 },
+	{ "st-256color", NULL, 	  NULL,		0,	    0, 		1,	    0,         -1 },
+	{ NULL,      NULL,      "Event Tester", 0,         1,          0,           1,         -1 }, /* xev */
+
 };
 
 /* layout(s) */
